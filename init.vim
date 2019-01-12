@@ -1,35 +1,43 @@
-set nocompatible
-filetype off
-
-" Vundle
-set rtp+=~/.vim/bundle/Vundle.vim
 " git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 " ~/.fzf/install
 set rtp+=~/.fzf
-call vundle#begin()
+call plug#begin('~/local/share/nvim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
+Plug 'VundleVim/Vundle.vim'
 
-Plugin 'tpope/vim-fugitive'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'tlhr/anderson.vim'
-Plugin 'itchyny/lightline.vim'
-Plugin 'kovisoft/slimv'
-Plugin 'tpope/vim-commentary'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'junegunn/goyo.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'valloric/YouCompleteMe'
-Plugin 'scrooloose/nerdtree'
-Plugin 'nvie/vim-flake8'
-Plugin 'mileszs/ack.vim'
-Plugin 'junegunn/fzf.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'altercation/vim-colors-solarized'
+Plug 'tlhr/anderson.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'kovisoft/slimv'
+Plug 'tpope/vim-commentary'
+Plug 'easymotion/vim-easymotion'
+Plug 'junegunn/goyo.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdtree'
+Plug 'junegunn/fzf.vim'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
-call vundle#end()
+call plug#end()
 
-filetype plugin indent on
-syntax enable
+" deoplete
+call deoplete#enable()
+
+" LanguageClient
+set hidden
+let g:LanguageClient_serverCommands = {
+    \ 'python': ['~/.local/bin/pyls'],
+    \ }
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 " lightline
 let g:lightline = {
@@ -55,20 +63,10 @@ set laststatus=2
 " paredit
 let g:paredit_mode = 1
 
-" editorconfig has to play nice with fugitive
-let g:EditorConfig_exclude_patterns = ['fugitive://.*']
-
-" YouCompleteMe
-let g:ycm_autoclose_preview_window_after_completion=1
-noremap <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
 " nerdtree
 autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR> 
-
-" ack
-nnoremap <C-g> :Ack!<Space>
 
 " fzf
 nnoremap <C-f> :Files<CR>
@@ -110,8 +108,8 @@ set t_Co=256
 " let g:solarized_termcolors=16
 " colorscheme solarized
 colorscheme anderson
-" highlight Normal ctermbg=NONE
-" highlight nonText ctermbg=NONE
+highlight Normal ctermbg=NONE
+highlight nonText ctermbg=NONE
 
 " tab = spaties
 set expandtab
