@@ -127,7 +127,7 @@ set hlsearch
 set ignorecase
 set smartcase
 set gdefault
-set wildchar=<Tab> wildmenu wildmode=full
+set wildchar=<Tab> wildmenu wildmode=longest:full
 set wildcharm=<C-z>
 nnoremap <F12> :b <C-z>
 nnoremap <A-left> :bp<CR>
