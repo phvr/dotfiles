@@ -4,13 +4,12 @@ call plug#begin('~/local/share/nvim/plugged')
 
 Plug 'altercation/vim-colors-solarized'
 Plug 'tlhr/anderson.vim'
+Plug 'flazz/vim-colorschemes'
 Plug 'itchyny/lightline.vim'
 Plug 'kovisoft/slimv'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-abolish'
-" Plug 'nvie/vim-flake8'
-" Plug 'nvie/vim-pyunit'
 Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
@@ -29,9 +28,7 @@ let mapleader = "\\"
 
 " color (don't forget to set coloscheme in lightline)
 set background=dark
-set t_Co=256
-" let g:solarized_termcolors=16
-" colorscheme solarized
+set termguicolors
 colorscheme anderson
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
@@ -110,6 +107,7 @@ set rtp+=~/.fzf
 nnoremap <C-f> :Files<CR>
 " install ag (the silver searcher)
 nnoremap <C-g> :Ag<CR>
+nnoremap <C-l> :Lines<CR>
 
 " filetypes
 au BufNewFile,BufRead *.lytex set filetype=tex
@@ -129,7 +127,7 @@ set smartcase
 set gdefault
 set wildchar=<Tab> wildmenu wildmode=longest:full
 set wildcharm=<C-z>
-nnoremap <F12> :b <C-z>
+nnoremap <F12> :Buffers<CR>
 nnoremap <A-left> :bp<CR>
 nnoremap <A-right> :bn<CR>
 
