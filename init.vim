@@ -1,5 +1,7 @@
-" curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/bin/python3'
 
+" curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/local/share/nvim/plugged')
 
 Plug 'altercation/vim-colors-solarized'
@@ -108,6 +110,7 @@ nnoremap <C-f> :Files<CR>
 " install ag (the silver searcher)
 nnoremap <C-g> :Ag<CR>
 nnoremap <C-l> :Lines<CR>
+nnoremap ;; :Commands<CR>
 
 " filetypes
 au BufNewFile,BufRead *.lytex set filetype=tex
@@ -125,7 +128,7 @@ set hlsearch
 set ignorecase
 set smartcase
 set gdefault
-set wildchar=<Tab> wildmenu wildmode=longest:full
+set wildchar=<Tab> wildmenu wildmode=longest,full
 set wildcharm=<C-z>
 nnoremap <F12> :Buffers<CR>
 nnoremap <A-left> :bp<CR>
