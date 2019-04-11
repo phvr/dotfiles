@@ -106,6 +106,17 @@ map <C-n> :NERDTreeToggle<CR>
 
 " tagbar (install exuberant-ctags)
 nnoremap <C-t> :TagbarToggle<CR>
+" for ansible; in ~/.ctags put
+" --langdef=ansible
+" --langmap=ansible:.yml
+" --regex-ansible=/^\s*- name:(.*)/\1/t,task/
+let g:tagbar_type_ansible = {
+	\ 'ctagstype' : 'ansible',
+	\ 'kinds' : [
+		\ 't:tasks'
+	\ ],
+	\ 'sort' : 0
+        \ }
 
 " fzf
 " git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
