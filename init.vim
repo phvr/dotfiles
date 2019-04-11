@@ -15,6 +15,7 @@ Plug 'tpope/vim-abolish'
 Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
+Plug 'majutsushi/tagbar'
 Plug 'pearofducks/ansible-vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/fzf.vim'
@@ -103,6 +104,9 @@ autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR> 
 
+" tagbar (install exuberant-ctags)
+nnoremap <C-t> :TagbarToggle<CR>
+
 " fzf
 " git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 " ~/.fzf/install
@@ -171,10 +175,10 @@ set nu
 nnoremap <tab> %
 vnoremap <tab> %
 
-" ctrl-T toggles show whitespace
+" ctrl-Tab toggles show whitespace
 " shift-Tab (in insert mode!) inserts actual tab char, always
 set listchars=tab:>-,trail:·
-nnoremap <C-t> :set invlist<CR>
+nnoremap <C-Tab> :set invlist<CR>
 inoremap <S-Tab> <C-V><Tab>
 
 " toggles paste (:set paste)
