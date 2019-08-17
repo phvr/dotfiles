@@ -121,6 +121,13 @@ set nu
 map j gj
 map k gk
 
+" windows
+nnoremap <tab> <C-w><C-w>
+nnoremap <C-h> <C-w><C-h>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+
 " tab = spaces
 set expandtab
 set shiftwidth=4
