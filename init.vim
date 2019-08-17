@@ -4,19 +4,16 @@ let g:python3_host_prog = '/usr/bin/python3'
 " curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'altercation/vim-colors-solarized'
 Plug 'tlhr/anderson.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'itchyny/lightline.vim'
 Plug 'kovisoft/slimv'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-abolish'
 Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
-Plug 'pearofducks/ansible-vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'autozimu/LanguageClient-neovim', {
@@ -47,10 +44,6 @@ let g:LanguageClient_serverCommands = {
     \ 'python': ['~/.local/bin/pyls'],
     \ }
 
-" g:LanguageClient_settingsPath???
-" let g:LanguageClient_loggingFile = '~/LC.log'
-" let g:LanguageClient_loggingLevel = 'INFO'
-
 set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
@@ -60,21 +53,6 @@ nnoremap <silent> <leader>g :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <leader>s :call LanguageClient#textDocument_references()<CR>
 nnoremap <C-s> :call LanguageClient#textDocument_documentSymbol()<CR>
 
-" Rename - rn => rename
-noremap <leader>rn :call LanguageClient#textDocument_rename()<CR>
-" Rename - rc => rename CamelCase
-noremap <leader>rc :call LanguageClient#textDocument_rename(
-            \ {'newName': Abolish.mixedcase(expand('<cword>'))})<CR>
-" Rename - rs => rename snake_case
-noremap <leader>rs :call LanguageClient#textDocument_rename(
-            \ {'newName': Abolish.snakecase(expand('<cword>'))})<CR>
-" Rename - ru => rename UPPERCASE
-noremap <leader>ru :call LanguageClient#textDocument_rename(
-            \ {'newName': Abolish.uppercase(expand('<cword>'))})<CR>
-"  Rename - rd => rename dash-case
-noremap <leader>rd :call LanguageClient#textDocument_rename(
-            \ {'newName': Abolish.dashcase(expand('<cword>'))})<CR>
-
 " lightline
 let g:lightline = {
       \ 'colorscheme': 'material',
@@ -83,7 +61,7 @@ let g:lightline = {
       \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
       \ },
       \ 'component': {
-      \   'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
+      \   'readonly': '%{&filetype=="help"?"":&readonly?"RO":""}',
       \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
       \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
       \ },
@@ -97,26 +75,15 @@ let g:lightline = {
 set laststatus=2
 
 " paredit
-" au BufNewFile,BufRead * call PareditInitBuffer()  
+let g:paredit_mode = 1
+au BufNewFile,BufRead * call PareditInitBuffer()  
 
 " nerdtree
 autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR> 
 
 " tagbar (install exuberant-ctags)
 nnoremap <C-t> :TagbarToggle<CR>
-" for ansible; in ~/.ctags put
-" --langdef=ansible
-" --langmap=ansible:.yml
-" --regex-ansible=/^\s*- name:(.*)/\1/t,task/
-let g:tagbar_type_ansible = {
-	\ 'ctagstype' : 'ansible',
-	\ 'kinds' : [
-		\ 't:tasks'
-	\ ],
-	\ 'sort' : 0
-        \ }
 
 " fzf
 " git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -127,6 +94,7 @@ nnoremap <C-f> :Files<CR>
 nnoremap <C-g> :Ag<CR>
 nnoremap <C-l> :Lines<CR>
 nnoremap ;; :Commands<CR>
+nnoremap <C-b> :Buffers<CR>
 
 " filetypes
 au BufNewFile,BufRead *.lytex set filetype=tex
@@ -136,33 +104,28 @@ au BufNewFile,BufRead *.muttrc set filetype=muttrc
 autocmd FileType mail setlocal wrap linebreak nolist textwidth=0 wrapmargin=0
 autocmd FileType text setlocal wrap linebreak nolist textwidth=0 wrapmargin=0
 
-" incrementeel zoeken, vondst highlighten
 set incsearch
 set hlsearch
-
-" slim zoeken, global replace default
 set ignorecase
 set smartcase
 set gdefault
 set wildchar=<Tab> wildmenu wildmode=longest,full
 set wildcharm=<C-z>
-nnoremap <F12> :Buffers<CR>
-nnoremap <A-left> :bp<CR>
-nnoremap <A-right> :bn<CR>
-
-" cursor nooit op rand scherm
-set scrolloff=3
-set ruler
-
-" regexp
 set magic
 
-" tab = spaties
+set scrolloff=3
+set ruler
+set nu
+
+" breaklines scrollable
+map j gj
+map k gk
+
+" tab = spaces
 set expandtab
 set shiftwidth=4
 set softtabstop=4
 set tabstop=8
-" 2 voor lisp
 autocmd FileType lisp setlocal shiftwidth=2 softtabstop=2
 
 " autoindent, linewrap
@@ -175,22 +138,8 @@ set wrapmargin=0
 highlight ColorColumn ctermbg=8
 set colorcolumn=120
 
-" breaklines als verschillende regels
-map j gj
-map k gk
-
-" regelnummers
-set nu
-
-" tab ipv % voor parenmatch
-nnoremap <tab> %
-vnoremap <tab> %
-
 " ctrl-Tab toggles show whitespace
 " shift-Tab (in insert mode!) inserts actual tab char, always
 set listchars=tab:>-,trail:·
 nnoremap <C-Tab> :set invlist<CR>
 inoremap <S-Tab> <C-V><Tab>
-
-" toggles paste (:set paste)
-set pastetoggle=<F10>
