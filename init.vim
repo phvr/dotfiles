@@ -74,10 +74,6 @@ let g:lightline = {
 " set noshowmode
 set laststatus=2
 
-" paredit
-let g:paredit_mode = 1
-au BufNewFile,BufRead * call PareditInitBuffer()  
-
 " nerdtree
 autocmd StdinReadPre * let s:std_in=1
 map <C-n> :NERDTreeToggle<CR> 
