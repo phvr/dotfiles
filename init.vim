@@ -43,6 +43,7 @@ set hidden
 let g:LanguageClient_serverCommands = {
     \ 'python': ['~/.local/bin/pyls'],
     \ }
+let g:LanguageClient_useVirtualText = 0
 
 set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
 
