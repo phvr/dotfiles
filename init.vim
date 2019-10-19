@@ -126,6 +126,12 @@ set nu
 map j gj
 map k gk
 
+" no arrows
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
 " windows
 nnoremap <tab> <C-w><C-w>
 nnoremap <C-h> <C-w><C-h>
