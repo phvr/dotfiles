@@ -117,6 +117,7 @@ set gdefault
 set wildchar=<Tab> wildmenu wildmode=longest,full
 set wildcharm=<C-z>
 set magic
+noremap <Esc> <Esc>:nohl<CR>
 
 set scrolloff=3
 set ruler
@@ -133,7 +134,7 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 
 " windows
-nnoremap <tab> <C-w><C-w>
+nnoremap <Tab> <C-w><C-w>
 nnoremap <C-h> <C-w><C-h>
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
@@ -156,8 +157,8 @@ set wrapmargin=0
 highlight ColorColumn ctermbg=8
 set colorcolumn=120
 
-" ctrl-Tab toggles show whitespace
+" ctrl-Space toggles show whitespace
 " shift-Tab (in insert mode!) inserts actual tab char, always
 set listchars=tab:>-,trail:·
-nnoremap <C-Tab> :set invlist<CR>
+nnoremap <C-Space> :set invlist<CR>
 inoremap <S-Tab> <C-V><Tab>
