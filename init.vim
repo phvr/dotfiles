@@ -123,6 +123,9 @@ set scrolloff=3
 set ruler
 set nu
 
+set clipboard=unnamed
+set clipboard=unnamedplus
+
 " breaklines scrollable
 map j gj
 map k gk
