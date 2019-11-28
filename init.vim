@@ -8,6 +8,8 @@ Plug 'tlhr/anderson.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'itchyny/lightline.vim'
 Plug 'kovisoft/slimv'
+Plug 'saltstack/salt-vim'
+Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'easymotion/vim-easymotion'
@@ -100,6 +102,9 @@ nnoremap <C-g> :Ag<CR>
 nnoremap <C-l> :Lines<CR>
 nnoremap ;; :Commands<CR>
 nnoremap <C-b> :Buffers<CR>
+
+" salt-vim
+let g:sls_use_jinja_syntax = 1
 
 " filetypes
 au BufNewFile,BufRead *.lytex set filetype=tex
