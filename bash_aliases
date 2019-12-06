@@ -1,5 +1,6 @@
 alias gst='git status'
-alias gc='git commit -a'
+alias gc='git commit'
+alias gca='git commit -a'
 alias gm='git checkout master'
 alias gp='git pull'
 alias gpu='git push -u origin HEAD'
