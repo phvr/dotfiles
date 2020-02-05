@@ -58,6 +58,7 @@ let g:LanguageClient_serverCommands = {
     \ 'python': ['~/.local/bin/pyls'],
     \ }
 let g:LanguageClient_useVirtualText = "No"
+let g:LanguageClient_diagnosticsList = "Location"
 
 set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
 
