@@ -146,6 +146,10 @@ noremap <Right> <Nop>
 " windows
 nnoremap <Tab> <C-w><C-w>
 
+" navigate quickfix buffer
+nnoremap m :cnext<CR>
+nnoremap M :cprevious<CR>
+
 " tab = spaces
 set expandtab
 set shiftwidth=4
