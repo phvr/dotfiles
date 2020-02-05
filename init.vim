@@ -14,7 +14,6 @@ Plug 'vitalk/vim-shebang'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'easymotion/vim-easymotion'
@@ -145,6 +144,7 @@ noremap <Right> <Nop>
 
 " windows
 nnoremap <Tab> <C-w><C-w>
+nnoremap bb :bd<CR>
 
 " navigate quickfix buffer
 nnoremap m :cnext<CR>
