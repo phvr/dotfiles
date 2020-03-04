@@ -14,3 +14,7 @@ alias drmi='docker rmi $(docker images -a --filter=dangling=true -q)'
 alias drma="drmv && drmc && drmi"
 
 alias serve="ls -la; hostname -I | cut -f 1 -d ' '; python2 -m SimpleHTTPServer"
+
+vip() {
+    $EDITOR $(which $1);
+}
