@@ -148,8 +148,8 @@ noremap <Right> <Nop>
 nnoremap <Tab> <C-w><C-w>
 
 " navigate quickfix buffer
-nnoremap m :cnext<CR>
-nnoremap M :cprevious<CR>
+nnoremap <C-j> :cnext<CR>
+nnoremap <C-k> :cprevious<CR>
 
 " tab = spaces
 set expandtab
