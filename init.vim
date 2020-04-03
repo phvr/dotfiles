@@ -146,6 +146,7 @@ noremap <Right> <Nop>
 
 " windows
 nnoremap <Tab> <C-w><C-w>
+nnoremap zz :bd<CR>
 
 " navigate quickfix buffer
 nnoremap <C-j> :cnext<CR>
