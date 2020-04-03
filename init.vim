@@ -22,6 +22,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/fzf.vim'
+Plug 'machakann/vim-highlightedyank'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
