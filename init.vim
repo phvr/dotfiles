@@ -103,8 +103,7 @@ nnoremap <C-t> :TagbarToggle<CR>
 " ~/.fzf/install
 set rtp+=~/.fzf
 nnoremap <C-f> :Files<CR>
-" install ag (the silver searcher)
-nnoremap <C-g> :Ag<CR>
+nnoremap <C-g> :Ggrep 
 nnoremap <C-l> :Lines<CR>
 nnoremap ;; :Commands<CR>
 nnoremap <C-b> :Buffers<CR>
