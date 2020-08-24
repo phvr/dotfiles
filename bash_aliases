@@ -22,3 +22,5 @@ vip() {
 cap() {
     cat $(which $1);
 }
+
+alias s='ssh -o stricthostkeychecking=no -o userknownhostsfile=/dev/null'
