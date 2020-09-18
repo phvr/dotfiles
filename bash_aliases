@@ -22,5 +22,9 @@ vip() {
 cap() {
     cat $(which $1);
 }
+# eee: easily echo env
+e() {
+    env | grep -i ^$1= | cut -d= -f2
+}
 
 alias s='ssh -o stricthostkeychecking=no -o userknownhostsfile=/dev/null'
