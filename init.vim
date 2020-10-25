@@ -57,6 +57,8 @@ set hidden
 " pip install --user 'python-language-server[all]'
 let g:LanguageClient_serverCommands = {
     \ 'python': ['~/.local/bin/pyls'],
+    \ 'go': ['~/go/bin/gopls'],
+    \ 'rust': ['rls'],
     \ }
 let g:LanguageClient_useVirtualText = "No"
 let g:LanguageClient_diagnosticsList = "Location"
