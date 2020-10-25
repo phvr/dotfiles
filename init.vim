@@ -105,7 +105,9 @@ nnoremap <C-t> :TagbarToggle<CR>
 " ~/.fzf/install
 set rtp+=~/.fzf
 nnoremap <C-f> :Files<CR>
-nnoremap <C-g> :Ggrep 
+" ripgrep
+nnoremap <C-g> :Rg<CR>
+nnoremap <C-h> :Ggrep 
 nnoremap <C-l> :Lines<CR>
 nnoremap ;; :Commands<CR>
 nnoremap <C-b> :Buffers<CR>
