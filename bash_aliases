@@ -5,7 +5,6 @@ alias gm='git checkout master'
 alias gp='git pull'
 alias gpu='git push -u origin HEAD'
 alias gitclean='git branch --merged | grep -v '^\*' | xargs -n 1 git branch -d'
-alias gitvim="$EDITOR $(git ls-files -mo --exclude-standard)"
 
 alias killswap='rm -rf ~/.local/share/nvim/swap/*'
 
@@ -46,4 +45,8 @@ genpass() {
 
 mykey() {
     ssh-add ~/.ssh/$(hostname)
+}
+
+gitvim() {
+    git ls-files -mo --exclude-standard | xargs $EDITOR
 }
