@@ -1,7 +1,7 @@
 alias gst='git status'
 alias gc='git commit'
 alias gca='git commit -a'
-alias gm='git checkout master'
+alias gm='git checkout master || git checkout main'
 alias gp='git pull'
 alias gpu='git push -u origin HEAD'
 alias gitclean='git branch --merged | grep -v '^\*' | xargs -n 1 git branch -d'
