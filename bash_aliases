@@ -12,6 +12,7 @@ alias cal="khal calendar now 14d"
 
 alias todo="cat $HOME/cloud/notes/TODO.txt"
 alias vitodo="$EDITOR $HOME/cloud/notes/TODO.txt"
+alias f="feh --scale-down --auto-zoom $@"
 
 vip() {
     $EDITOR $(which $1);
