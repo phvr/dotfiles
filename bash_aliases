@@ -9,6 +9,12 @@ alias gitclean='git branch --merged | grep -v '^\*' | xargs -n 1 git branch -d'
 
 alias killswap='rm -rf ~/.local/share/nvim/swap/*'
 
+alias dc='docker-compose'
+alias drmv='docker volume ls -qf dangling=true | xargs -r docker volume rm'
+alias drmc='docker rm $(docker ps -qa --no-trunc --filter "status=exited")'
+alias drmi='docker rmi $(docker images -a --filter=dangling=true -q)'
+alias drma="drmv && drmc && drmi"
+
 alias cal="khal calendar now 14d"
 
 alias todo="cat $HOME/cloud/notes/TODO.txt"
