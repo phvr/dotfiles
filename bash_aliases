@@ -21,6 +21,10 @@ alias todo="cat $HOME/cloud/notes/TODO.txt"
 alias vitodo="$EDITOR $HOME/cloud/notes/TODO.txt"
 alias f="feh --scale-down --auto-zoom $@"
 
+add() {
+    awk '{sum+=$1} END {print sum}' $@
+}
+
 vip() {
     $EDITOR $(which $1);
 }
