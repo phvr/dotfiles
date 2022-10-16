@@ -16,10 +16,23 @@ alias drmi='docker rmi $(docker images -a --filter=dangling=true -q)'
 alias drma="drmv && drmc && drmi"
 
 alias cal="khal calendar now 14d"
+alias f="feh --scale-down --auto-zoom $@"
 
 alias todo="cat $HOME/cloud/notes/TODO.txt"
 alias vitodo="$EDITOR $HOME/cloud/notes/TODO.txt"
-alias f="feh --scale-down --auto-zoom $@"
+note() {
+    $EDITOR "$HOME/cloud/notes/$1"
+}
+_note() {
+    local base="$HOME/cloud/notes/"
+    files=()
+    for f in $(find $base -mindepth 1); do
+        files+=(${f#"$base"})
+    done
+    COMPREPLY=($(compgen -W "${files[*]}" -- "${COMP_WORDS[1]}"))
+}
+complete -F _note note
+
 
 add() {
     awk '{sum+=$1} END {print sum}' $@
