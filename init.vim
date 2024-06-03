@@ -56,10 +56,11 @@ endfunction"}}}
 set hidden
 " pip install --user 'python-language-server[all]'
 let g:LanguageClient_serverCommands = {
-    \ 'python': ['~/.local/bin/pyls'],
+    \ 'python': ['~/.local/bin/pylsp'],
     \ 'go': ['~/go/bin/gopls'],
     \ 'rust': ['rls'],
     \ }
+let g:LanguageClient_loggingFile =  expand('~/.local/share/nvim/LanguageClient.log')
 let g:LanguageClient_useVirtualText = "No"
 let g:LanguageClient_diagnosticsList = "Location"
 
